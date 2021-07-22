@@ -4,10 +4,12 @@ const http = require('http');
 const express = require('express');
 const {createGameState} = require("./game");
 const dotenv = require("dotenv");
+const cors = require("cors");
 dotenv.config();
 
 //
 let app  =express();
+app.use(cors())
 let server= http.createServer(app);
 const io = require("socket.io")(server,{
     cors:{
