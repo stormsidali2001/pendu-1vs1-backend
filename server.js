@@ -18,18 +18,13 @@ app.use(function(req, res, next) {
     });
 app.use(cors())
 let server= http.createServer(app);
-const io = require("socket.io")(server,{
-    cors:{
-        origin: ["*"],    
-        methods: ["GET", "POST"]  
-    }
-});
+const io = require("socket.io")(server);
 
 
 // const publicPath    = path.join(__dirname, '/public');
 // app.use(express.static(publicPath));
-const port =  3000;
-server.listen(process.env.PORT || 5001 ,()=>{
+const port =  process.env.PORT || 5001;
+server.listen(port ,()=>{
     console.log(`server is running on ${port}`)
 });
 
