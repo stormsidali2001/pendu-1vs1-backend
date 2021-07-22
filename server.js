@@ -9,16 +9,16 @@ dotenv.config();
 
 //
 let app  =express();
-app.use(function(req, res, next) {
-    res.header("Access-Control-Allow-Origin", '*');
-    res.header("Access-Control-Allow-Credentials", true);
-    res.header('Access-Control-Allow-Methods', 'GET,PUT,POST,DELETE,OPTIONS');
-    res.header("Access-Control-Allow-Headers", 'Origin,X-Requested-With,Content-Type,Accept,content-type,application/json');
-    next();
-    });
+
 app.use(cors())
 let server= http.createServer(app);
-const io = require("socket.io")(server);
+const io = require("socket.io")(server,{
+    cors:{
+        origin: `http://localhost:3000`, // I copied the origin in the error message and pasted here
+        methods: ["GET", "POST"],
+        credentials: true
+    }
+});
 
 
 // const publicPath    = path.join(__dirname, '/public');
