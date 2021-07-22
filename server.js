@@ -14,7 +14,7 @@ app.use(cors())
 let server= http.createServer(app);
 const io = require("socket.io")(server,{
     cors:{
-        origin: [`https://pendu-1vs1.herokuapp.com/`,'http//:localhost:3000'], // I copied the origin in the error message and pasted here
+        origin: `https://pendu-1vs1.herokuapp.com/`, // I copied the origin in the error message and pasted here
         methods: ["GET", "POST"],
         credentials: true
     }
