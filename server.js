@@ -2,7 +2,10 @@
 const path = require('path');
 const http = require('http');
 const express = require('express');
-const {createGameState} = require("./game")
+const {createGameState} = require("./game");
+const dotenv = require("dotenv");
+dotenv.config();
+
 //
 let app  =express();
 let server= http.createServer(app);
@@ -17,7 +20,7 @@ const io = require("socket.io")(server,{
 // const publicPath    = path.join(__dirname, '/public');
 // app.use(express.static(publicPath));
 const port =  3000;
-server.listen(port,()=>{
+server.listen(process.env.PORT || 5001 ,()=>{
     console.log(`server is running on ${port}`)
 });
 
