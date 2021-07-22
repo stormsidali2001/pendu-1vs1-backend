@@ -14,7 +14,7 @@ const io = require("socket.io")(server,{
 
 
 const publicPath    = path.join(__dirname, '/public');
-app.use(express.static("public"));
+app.use(express.static(publicPath));
 const port =  5001;
 server.listen(port,()=>{
     console.log(`server is running on ${port}`)
