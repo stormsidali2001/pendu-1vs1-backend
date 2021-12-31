@@ -68,7 +68,7 @@ io.on("connection",socket =>{
        socket.join(data.room);
        setTimeout(()=>{
         socket.emit("playerData",{number:number,username:data.username});
-       },0) //waint until the app component is rendered login will be hidden and game and chatbox will show
+       },200) //waint until the app component is rendered login will be hidden and game and chatbox will show
       
        socket.number = number;
  
